@@ -1,4 +1,4 @@
-{% set version = "0.3.0" %}
+{% set version = "0.4.0" %}
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
 
@@ -10,11 +10,11 @@ source:
   url:
     - {{ cran_mirror }}/src/contrib/tzdb_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/tzdb/tzdb_{{ version }}.tar.gz
-  sha256: 6099f0ec1fba692b51b4360aa776902a39f10dae815933c31994b8e4d4277038
+  sha256: 4253c66041bdddfd463c98183bf0052fbcacdb7c5cff9eadbb858b3dcf9d3a23
 
 build:
   merge_build_host: true  # [win]
-  number: 1
+  number: 0
   rpaths:
     - lib/R/lib/
     - lib/
