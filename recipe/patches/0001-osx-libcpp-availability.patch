@@ -1,0 +1,20 @@
+From df8fc24e0b9f7d93ea701e2cd265ca5fdc0b8fc7 Mon Sep 17 00:00:00 2001
+From: Mervin Fansler <mmfansler@gmail.com>
+Date: Wed, 14 Jun 2023 15:10:34 -0400
+Subject: [PATCH] osx libcpp availability
+
+---
+ src/Makevars | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+
+diff --git a/src/Makevars b/src/Makevars
+index d1b2df2..34fa4c8 100644
+--- a/src/Makevars
++++ b/src/Makevars
+@@ -32,4 +32,5 @@ PKG_CXXFLAGS = \
+ 	-DAUTO_DOWNLOAD=0 \
+ 	-DHAS_REMOTE_API=0 \
+ 	-DUSE_OS_TZDB=0 \
+-	-DONLY_C_LOCALE=1
++	-DONLY_C_LOCALE=1 \
++	-D_LIBCPP_DISABLE_AVAILABILITY

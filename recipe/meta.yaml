@@ -11,22 +11,24 @@ source:
     - {{ cran_mirror }}/src/contrib/tzdb_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/tzdb/tzdb_{{ version }}.tar.gz
   sha256: 4253c66041bdddfd463c98183bf0052fbcacdb7c5cff9eadbb858b3dcf9d3a23
+  patches:
+    - patches/0001-osx-libcpp-availability.patch
 
 build:
   merge_build_host: true  # [win]
-  number: 0
+  number: 1
   rpaths:
     - lib/R/lib/
     - lib/
 
 requirements:
   build:
-    - cross-r-base {{ r_base }}  # [build_platform != target_platform]
-    - r-cpp11                    # [build_platform != target_platform]
-    - {{ compiler('c') }}              # [not win]
-    - {{ compiler('m2w64_c') }}        # [win]
-    - {{ compiler('cxx') }}            # [not win]
-    - {{ compiler('m2w64_cxx') }}      # [win]
+    - cross-r-base {{ r_base }}    # [build_platform != target_platform]
+    - r-cpp11                      # [build_platform != target_platform]
+    - {{ compiler('c') }}          # [not win]
+    - {{ compiler('m2w64_c') }}    # [win]
+    - {{ compiler('cxx') }}        # [not win]
+    - {{ compiler('m2w64_cxx') }}  # [win]
     - {{ posix }}filesystem        # [win]
     - {{ posix }}make
     - {{ posix }}sed               # [win]
@@ -35,11 +37,11 @@ requirements:
     - cross-r-base {{ r_base }}    # [build_platform != target_platform]
   host:
     - r-base
-    - r-cpp11 >=0.2.7
+    - r-cpp11 >=0.4.2
   run:
     - r-base
     - {{ native }}gcc-libs         # [win]
-    - r-cpp11 >=0.2.7
+    - r-cpp11 >=0.4.2
 
 test:
   commands:
